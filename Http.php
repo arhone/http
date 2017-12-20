@@ -10,21 +10,21 @@ namespace arhone\http;
 class Http implements HttpInterface {
 
     /**
-     * @var Request
+     * @var RequestInterface
      */
     protected $Request;
 
     /**
-     * @var Response
+     * @var ResponseInterface
      */
     protected $Response;
 
     /**
      * Http constructor.
-     * @param Request $Request
-     * @param Response $Response
+     * @param RequestInterface $Request
+     * @param ResponseInterface $Response
      */
-    public function __construct (Request $Request, Response $Response) {
+    public function __construct (RequestInterface $Request, ResponseInterface $Response) {
 
         $this->Request  = clone $Request;
         $this->Response = clone $Response;
@@ -55,11 +55,22 @@ class Http implements HttpInterface {
      */
     public function __set ($name, $value) {
 
-        if (isset($this->{$name}) && ($value instanceof Request || $value instanceof Response)) {
+        if (isset($this->{$name}) && ($value instanceof RequestInterface || $value instanceof ResponseInterface)) {
 
             $this->{$name} = clone $value;
 
         }
+
+    }
+
+    /**
+     * @param RequestInterface $Request
+     * @param ResponseInterface $Response
+     */
+    public function __invoke (RequestInterface $Request, ResponseInterface $Response) {
+
+        $this->Request  = clone $Request;
+        $this->Response = clone $Response;
 
     }
 
