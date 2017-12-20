@@ -1,0 +1,30 @@
+{
+  "name": "arhone/http",
+  "description": "Request Response Container (PHP 7)",
+  "homepage": "https://github.com/arhone/http",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Алексей Арх",
+      "email": "info@arh.one"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "arhone\\http\\": ""
+    },
+    "classmap": [
+      "HttpInterface.php",
+      "Http.php",
+      "RequestInterface.php",
+      "Request.php",
+      "ResponseInterface.php",
+      "Response.php"
+    ]
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^7.0"
+  }
+}
