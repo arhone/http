@@ -5,6 +5,8 @@ namespace arhone\http;
  * HTTP контейнер
  *
  * Class Http
+ * @property RequestInterface $Request
+ * @property ResponseInterface $Response
  * @package arhone\http
  */
 class Http implements HttpInterface {
@@ -26,8 +28,8 @@ class Http implements HttpInterface {
      */
     public function __construct (RequestInterface $Request, ResponseInterface $Response) {
 
-        $this->Request  = clone $Request;
-        $this->Response = clone $Response;
+        $this->Request  = $Request;
+        $this->Response = $Response;
 
     }
 
@@ -41,7 +43,7 @@ class Http implements HttpInterface {
 
         if (isset($this->{$name})) {
 
-            return clone $this->{$name};
+            return $this->{$name};
 
         }
 
@@ -57,20 +59,32 @@ class Http implements HttpInterface {
 
         if (isset($this->{$name}) && ($value instanceof RequestInterface || $value instanceof ResponseInterface)) {
 
-            $this->{$name} = clone $value;
+            $this->{$name} = $value;
 
         }
 
     }
 
     /**
+     * Клинирует свойства
+     */
+    public function __clone () {
+
+        $this->Request  = clone $this->Request;
+        $this->Response = clone $this->Response;
+
+    }
+
+    /**
+     * Возвращает новый объект
+     *
      * @param RequestInterface $Request
      * @param ResponseInterface $Response
+     * @return Http
      */
-    public function __invoke (RequestInterface $Request, ResponseInterface $Response) {
+    public function __invoke (RequestInterface $Request, ResponseInterface $Response) : Http {
 
-        $this->Request  = clone $Request;
-        $this->Response = clone $Response;
+        return new self($Request, $Response);
 
     }
 

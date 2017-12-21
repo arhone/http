@@ -5,9 +5,47 @@ namespace arhone\http;
  * HTTP контейнер
  *
  * Interface HttpInterface
+ * @property RequestInterface $Request
+ * @property ResponseInterface $Response
  * @package arhone\http
  */
 interface HttpInterface {
 
+    /**
+     * Http constructor.
+     * @param RequestInterface $Request
+     * @param ResponseInterface $Response
+     */
+    public function __construct (RequestInterface $Request, ResponseInterface $Response);
+
+    /**
+     * Возвращает объект
+     *
+     * @param $name
+     * @return mixed
+     */
+    public function __get ($name);
+
+    /**
+     * Задаёт объект
+     *
+     * @param $name
+     * @param $value
+     */
+    public function __set ($name, $value);
+
+    /**
+     * Клинирует свойства
+     */
+    public function __clone ();
+
+    /**
+     * Возвращает новый объект
+     *
+     * @param RequestInterface $Request
+     * @param ResponseInterface $Response
+     * @return Http
+     */
+    public function __invoke (RequestInterface $Request, ResponseInterface $Response) : Http;
 
 }
