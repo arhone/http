@@ -14,7 +14,6 @@ class Request implements RequestInterface {
     protected $post;
     protected $cookie;
     protected $files;
-    protected $header;
     protected $body;
 
     /**
@@ -24,16 +23,14 @@ class Request implements RequestInterface {
      * @param array $post
      * @param array $cookie
      * @param array $files
-     * @param array $header
      */
-    public function __construct(array $server, array $get, array $post, array $cookie, array $files, array $header = []) {
+    public function __construct(array $server, array $get, array $post, array $cookie, array $files) {
 
         $this->server = $server;
         $this->get    = $get;
         $this->post   = $post;
         $this->cookie = $cookie;
         $this->files  = $files;
-        $this->header = !empty($header) ? $header : getallheaders();
 
     }
 
