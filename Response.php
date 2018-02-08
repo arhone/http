@@ -6,6 +6,7 @@ namespace arhone\http;
  *
  * Class Response
  * @package arhone\http
+ * @author Алексей Арх <info@arh.one>
  */
 class Response implements ResponseInterface {
 

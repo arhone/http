@@ -5,9 +5,8 @@ namespace arhone\http;
  * HTTP контейнер
  *
  * Interface HttpInterface
- * @property RequestInterface $Request
- * @property ResponseInterface $Response
  * @package arhone\http
+ * @author Алексей Арх <info@arh.one>
  */
 interface HttpInterface {
 

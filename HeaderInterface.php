@@ -4,6 +4,7 @@ namespace arhone\http;
 /**
  * Interface HeaderInterface
  * @package arhone\http
+ * @author Алексей Арх <info@arh.one>
  */
 interface HeaderInterface {
 
