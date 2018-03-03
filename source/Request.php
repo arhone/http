@@ -6,10 +6,12 @@ namespace arhone\http;
  *
  * Class Request
  * @package arhone\http
+ * @author Алексей Арх <info@arh.one>
  */
 class Request implements RequestInterface {
 
     protected $server;
+    protected $header;
     protected $get;
     protected $post;
     protected $cookie;
@@ -19,14 +21,16 @@ class Request implements RequestInterface {
     /**
      * Request constructor.
      * @param array $server
+     * @param array $header
      * @param array $get
      * @param array $post
      * @param array $cookie
      * @param array $files
      */
-    public function __construct(array $server, array $get, array $post, array $cookie, array $files) {
+    public function __construct(array $server, array $header, array $get, array $post, array $cookie, array $files) {
 
         $this->server = $server;
+        $this->header = $header;
         $this->get    = $get;
         $this->post   = $post;
         $this->cookie = $cookie;

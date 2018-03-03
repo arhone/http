@@ -5,28 +5,34 @@ return [
         'class' => 'arhone\http\Http',
         'construct' => [
             ['Request'],
-            ['Response'],
-            ['Header']
+            ['Response']
         ]
     ],
     'Request' => [
         'class' => 'arhone\http\Request',
         'construct' => [
-            $_SERVER,
-            $_GET,
-            $_POST,
-            $_COOKIE,
-            $_FILES
+            [
+                'array' => $_SERVER,
+            ],
+            [
+                'array' => getallheaders()
+            ],
+            [
+                'array' => $_GET,
+            ],
+            [
+                'array' => $_POST,
+            ],
+            [
+                'array' => $_COOKIE,
+            ],
+            [
+                'array' => $_FILES
+            ]
         ]
     ],
     'Response' => [
         'class' => 'arhone\http\Response',
         'construct' => []
-    ],
-    'Header' => [
-        'class' => 'arhone\http\Header',
-        'construct' => [
-            getallheaders()
-        ]
     ]
 ];
