@@ -14,14 +14,7 @@
     "psr-4": {
       "arhone\\http\\": "source/"
     },
-    "classmap": [
-      "HttpInterface.php",
-      "Http.php",
-      "RequestInterface.php",
-      "Request.php",
-      "ResponseInterface.php",
-      "Response.php"
-    ]
+    "classmap": ["source/"]
   },
   "minimum-stability": "stable",
   "require": {
