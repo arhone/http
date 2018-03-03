@@ -10,5 +10,7 @@ namespace arhone\http;
  */
 class Response implements ResponseInterface {
 
+    protected $header;
+    protected $body;
 
 }

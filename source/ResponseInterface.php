@@ -6,6 +6,7 @@ namespace arhone\http;
  *
  * Interface ResponseInterface
  * @package arhone\http
+ * @author Алексей Арх <info@arh.one>
  */
 interface ResponseInterface {
 

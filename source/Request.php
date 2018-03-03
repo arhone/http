@@ -6,16 +6,14 @@ namespace arhone\http;
  *
  * Class Request
  * @package arhone\http
- * @author Алексей Арх <info@arh.one>
  */
-class Request implements ResponseInterface {
+class Request implements RequestInterface {
 
     protected $server;
     protected $get;
     protected $post;
     protected $cookie;
     protected $files;
-    protected $header;
     protected $body;
 
     /**
@@ -33,6 +31,41 @@ class Request implements ResponseInterface {
         $this->post   = $post;
         $this->cookie = $cookie;
         $this->files  = $files;
+
+    }
+
+    /**
+     * Получает значение массива
+     *
+     * @param string $key
+     * @param $storage
+     * @return null
+     */
+    public function getValue (string $key, &$storage) {
+
+        if (empty($key)) {
+
+            return $storage;
+
+        }
+
+        foreach (explode('.', $key) as $k) {
+
+            if (!isset($storage[$k])) {
+                return null;
+            }
+
+            $storage = &$storage[$k];
+
+        }
+
+        if (isset($storage)) {
+
+            return $storage;
+
+        }
+
+        return null;
 
     }
 
