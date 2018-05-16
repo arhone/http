@@ -19,7 +19,7 @@ class Header implements HeaderInterface {
      */
     public function __construct (array $storage = []) {
 
-        $this->storage = !empty($storage) ? $storage : getallheaders();
+        $this->storage = !empty($storage) ? $storage : [];
 
     }
 
